@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* --- Info-Box --- */
+#info-box {
+  margin-bottom: 16px;
+}
+
+/* --- Formular --- */
+#todo-formular {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#todo-eingabe {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+}
+
+.aktion-btn {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* --- Zeichenzähler --- */
+#zeichen-info {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+/* --- Todo-Liste --- */
+#todo-liste {
+  list-style: none;
+  padding: 0;
+}
+
+#todo-liste li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+#todo-liste li span {
+  flex: 1;
+}
+
+#todo-liste li.erledigt span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+#todo-liste button {
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+/* --- Zähler --- */
+#todo-zaehler {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #555;
+}

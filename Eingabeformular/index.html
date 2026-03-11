@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo-Liste</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <h1>Meine Todo-Liste</h1>
+
+  <!-- FOLIE 03: DOM Manipulation -->
+  <div id="info-box">Willkommen!</div>
+
+  <!-- FOLIE 07: Formular -->
+  <form id="todo-formular">
+    <input type="text" id="todo-eingabe" placeholder="Neues Todo eingeben..." maxlength="50" />
+    <button type="submit" class="aktion-btn">Hinzufügen</button>
+  </form>
+
+  <!-- FOLIE 02: querySelectorAll / FOLIE 04: Events -->
+  <button class="aktion-btn" id="alle-loeschen-btn">Alle löschen</button>
+  <button id="info-btn">Info anzeigen</button>
+
+  <!-- FOLIE 08: Input-Event (Zeichenzähler) -->
+  <div id="zeichen-info">0 / 50 Zeichen</div>
+
+  <!-- FOLIE 02: Elemente selektieren / FOLIE 09: Event Delegation -->
+  <ul id="todo-liste">
+    <!-- FOLIE 10: Data Attributes -->
+    <!-- Jedes <li> bekommt später: data-id="..." -->
+  </ul>
+
+  <!-- FOLIE 06: Counter -->
+  <div id="todo-zaehler">Todos: 0</div>
+
+  <!-- Best Practice: Script mit defer laden -->
+  <script src="app.js" defer></script>
+
+</body>
+
+</html>
