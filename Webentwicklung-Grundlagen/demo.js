@@ -27,7 +27,7 @@ user.name = 'Danial';
 
 
 // Bei Objekten und Arrays können innerhalb des Objekts oder Arrays die Werte verändert werden
-const zahlen = [ 3, 5, 6, 8];
+const zahlen = [3, 5, 6, 8];
 
 zahlen.pop();
 zahlen.push(1);
@@ -70,10 +70,10 @@ console.log();
 console.log('--------- Datentypen --------')
 // Datentyp der Variable: undefined
 let undefinedVariable;
-console.log(typeof(undefinedVariable));
+console.log(typeof (undefinedVariable));
 
 undefinedVariable = 'Hallo Welt';
-console.log(typeof(undefinedVariable));
+console.log(typeof (undefinedVariable));
 
 // ------------ Vergleichsoperatoren ---------------
 console.log();
@@ -108,14 +108,14 @@ if (age >= 18) {
     console.log('Ist minderjährig');
 }
 
-const message = istVolljaehrig 
+const message = istVolljaehrig
     ? 'Ist volljährig'             // Wird ausgeführt, wenn Ausdruck zu true auswertet
     : 'Ist minderjährig';         // Wird ausgeführt, wenn Ausdruck zu false auswertet
 
 // Struktur Ternary: <Booleanausdruck> ? IstWahr : IstFalsch;
 const messageZwei = istVolljaehrig ? 'Ist volljährig' : 'Ist minderjährig';
 
-console.log(`Die Nachricht ist: ${message}`); 
+console.log(`Die Nachricht ist: ${message}`);
 
 
 // ---------- Logische Operatoren ------------
@@ -172,6 +172,7 @@ console.log(nichtLeererName)                        // 'Max'
 console.log();
 console.log('--------- Funktionen --------');
 
+// Funktion mit Übergabe eines Paramters klassisch und als Arrow Function
 function greetKlassisch(name) {
     return `Hallo ${name}`;
 }
@@ -184,19 +185,25 @@ console.log(begruessung);
 
 console.log(greetArrow('Timo'));
 
+
+// Funktion ohne Paramter klassisch und als Arrow Function
 function sayHiKlassisch() {
     return 'Hi!';
 }
 
+// Arrow Functions können mit oder ohne Klammern geschrieben werden. 
+// Mit Klammer ist ein return für die Rückgabe eines Werts notwendig. 
+// Ohne Klammer kann return weggelassen werden und es wird trotzdem ein Wert zurückgegeben.
 // const sayHiArrow = () => 'Hi!';
-const sayHiArrow = () => { 
-    return 'Hi!'; 
-}; 
+const sayHiArrow = () => {
+    return 'Hi!';
+};
 
 console.log(sayHiKlassisch());
 console.log(sayHiArrow());
 
 
+// Arrow Function mit mehreren Parametern
 const calc = (zahl1, zahl2) => {
     const ergebnis = zahl1 + zahl2;
     console.log(ergebnis)
@@ -210,7 +217,10 @@ console.log(calc(4, 8));
 console.log();
 console.log('--------- Callback Funktionen --------');
 
-function sagHallo() {
+// Eine Callback-Funktion ist einfach eine Funktion, die du einer anderen Funktion als Parameter übergibst, 
+// damit sie später aufgerufen werden kann.
+
+function sagHalloKlassisch() {
     console.log('Hallo!');
 }
 
@@ -218,29 +228,39 @@ const sagHalloArrow = () => {
     console.log('Hallo!');
 };
 
-sagHallo();
+sagHalloKlassisch();
 
-setTimeout(sagHallo, 2000);
+// Aufruf der Funktion setTimeout mit einer Callback Function
+// Callback Functino hier: sagHalloKlassisch
+setTimeout(sagHalloKlassisch, 2000);
 
+// Callback Functino hier: sagHalloArrow
 setTimeout(sagHalloArrow, 2000);
 
-
+// // Callback Functino hier: () => { console.log('Hallo!'); }
 setTimeout(() => {
     console.log('Hallo!');
 }, 4000);
 
 // Falsch:
 //setTimeout(calc(4, 8), 2000);
-// Richtig: 
+// Richtig: -> so wird nicht der Funktionsaufruf übergeben, 
+// sondern eine Callback-Funktion, die einen normalen Funktionsaufruf innerhalb der Funktion macht
 setTimeout(() => calc(4, 8), 2000);
+//          ↑ das ist der Callback
+//                ↑ das ist ein normaler Funktionsaufruf innerhalb des Callbacks
 
-// setTimeOut(undefined, 2000);
-// setTimeout(sagHallo(), 2000);
 
+setTimeout(sagHallo(), 2000); // Ist das gleiche wie: setTimeOut(undefined, 2000);
+
+// Funktion, die eine Callback Function als Argument erwartet: function multiplizieren(zahl, callbackFunction)
 function multiplizieren(zahl, unsereFunktion) {
     let ergebnis = zahl * 2;
-    unsereFunktion(ergebnis);
+    unsereFunktion(ergebnis);  //Funktionsaufruf der Callback Function
 }
+
+// => Vorteil: Man kann die gleiche Funktion für verschiedene Fälle oder Ausgaben wiederverwenden, 
+// ohne für jeden einzelnen Fall oder jede einzelne Augabe eine neue Funktion schreiben zu müssen
 
 multiplizieren(5, (ergebnis) => {
     console.log(`Das Ergebnis ist: ${ergebnis}`);
@@ -255,6 +275,8 @@ multiplizieren(5, (ergebnis) => {
 // ------------ Template Literals -------------
 console.log();
 console.log('--------- Template Literals --------');
+
+// WICHTIG: Für Template Literals müssen Backticks verwendet werden
 
 const userName = 'Melanie';
 
@@ -278,8 +300,10 @@ console.warn('Achtung, Warnung!');
 const error = 'Das ist ein wichtiger Fehler';
 console.error('Fehler:', error);
 
-console.table([{name: 'Stefan', alter: 30}, {name: 'Meikel', alter: 26}]);
+console.table([{ name: 'Stefan', alter: 30 }, { name: 'Meikel', alter: 26 }]);
 
+// Auf document kann nur über die DevTools zugriffen werden -> so wird die JavaScript-Datei über die HTML-Datei aufgerufen
+// Beim Ausführen über das Terminal gibt das eine Fehlermeldung
 // console.dir(document.body);
 
 
@@ -291,7 +315,7 @@ const personenAlter = 5;
 
 if (personenAlter > 18) {
     console.log('Volljährig.');
-} else if (personenAlter < 18) {
+} else if (personenAlter < 18) {
     console.log('Minderjährig');
 } else {
     console.log('Genau 18.');
@@ -310,10 +334,10 @@ switch (wochentag) {
         console.log('Wochenende.');
         break;
     case 'Sonntag':
-        console.log('Wochenende.'); 
+        console.log('Wochenende.');
         break;
     default:
-        console.log('Normaler Wochentag.')           
+        console.log('Normaler Wochentag.')
 }
 
 for (let i = 0; i < 5; i++) {
@@ -321,7 +345,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 console.log()
-const zahlenArray = [ 3, 5, 6, 8];
+const zahlenArray = [3, 5, 6, 8];
 
 for (const zahl of zahlenArray) {
     console.log(zahl);
