@@ -166,3 +166,171 @@ const nameEingabe = 'Max';
 const nichtLeererName = nameEingabe ?? 'Kein Name';
 
 console.log(nichtLeererName)                        // 'Max'
+
+
+// ------------ Funktionen -------------
+console.log();
+console.log('--------- Funktionen --------');
+
+function greetKlassisch(name) {
+    return `Hallo ${name}`;
+}
+
+const greetArrow = (name) => `Hallo ${name}`;
+
+
+const begruessung = greetKlassisch('Danial');
+console.log(begruessung);
+
+console.log(greetArrow('Timo'));
+
+function sayHiKlassisch() {
+    return 'Hi!';
+}
+
+// const sayHiArrow = () => 'Hi!';
+const sayHiArrow = () => { 
+    return 'Hi!'; 
+}; 
+
+console.log(sayHiKlassisch());
+console.log(sayHiArrow());
+
+
+const calc = (zahl1, zahl2) => {
+    const ergebnis = zahl1 + zahl2;
+    console.log(ergebnis)
+    return ergebnis;
+};
+
+console.log(calc(4, 8));
+
+
+// ------------ Callback Funktionen -------------
+console.log();
+console.log('--------- Callback Funktionen --------');
+
+function sagHallo() {
+    console.log('Hallo!');
+}
+
+const sagHalloArrow = () => {
+    console.log('Hallo!');
+};
+
+sagHallo();
+
+setTimeout(sagHallo, 2000);
+
+setTimeout(sagHalloArrow, 2000);
+
+
+setTimeout(() => {
+    console.log('Hallo!');
+}, 4000);
+
+// Falsch:
+//setTimeout(calc(4, 8), 2000);
+// Richtig: 
+setTimeout(() => calc(4, 8), 2000);
+
+// setTimeOut(undefined, 2000);
+// setTimeout(sagHallo(), 2000);
+
+function multiplizieren(zahl, unsereFunktion) {
+    let ergebnis = zahl * 2;
+    unsereFunktion(ergebnis);
+}
+
+multiplizieren(5, (ergebnis) => {
+    console.log(`Das Ergebnis ist: ${ergebnis}`);
+});
+
+multiplizieren(5, (ergebnis) => {
+    console.log(`Wir haben gerechnet und als Ergebnis ${ergebnis} rausbekommen.`);
+});
+
+
+
+// ------------ Template Literals -------------
+console.log();
+console.log('--------- Template Literals --------');
+
+const userName = 'Melanie';
+
+console.log('Hallo, wie geht es dir, ' + userName + '?');
+console.log(`Hallo, wie geht es dir, ${userName}?`);
+
+console.log(`Summe: ${2 * 5 + 3}`);
+
+console.log(`Ich sage: ${sayHiKlassisch()}`);
+
+
+// ------------ Console Debugging -------------
+console.log();
+console.log('--------- Console Debugging --------');
+
+console.log('Debug:', userName);
+console.log('Wir testen gerade.')
+
+console.warn('Achtung, Warnung!');
+
+const error = 'Das ist ein wichtiger Fehler';
+console.error('Fehler:', error);
+
+console.table([{name: 'Stefan', alter: 30}, {name: 'Meikel', alter: 26}]);
+
+// console.dir(document.body);
+
+
+// ------------ Kontrollstrukturen -------------
+console.log();
+console.log('--------- Kontrollstrukturen --------');
+
+const personenAlter = 5;
+
+if (personenAlter > 18) {
+    console.log('Volljährig.');
+} else if (personenAlter < 18) {
+    console.log('Minderjährig');
+} else {
+    console.log('Genau 18.');
+}
+
+const wochentag = 'Dienstag';
+
+switch (wochentag) {
+    case 'Montag':
+        console.log('Anfang der Woche.');
+        break;
+    case 'Freitag':
+        console.log('Fast Wochenende.');
+        break;
+    case 'Samstag':
+        console.log('Wochenende.');
+        break;
+    case 'Sonntag':
+        console.log('Wochenende.'); 
+        break;
+    default:
+        console.log('Normaler Wochentag.')           
+}
+
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+console.log()
+const zahlenArray = [ 3, 5, 6, 8];
+
+for (const zahl of zahlenArray) {
+    console.log(zahl);
+}
+
+console.log()
+let zaehler = 0
+
+while (zaehler < 5) {
+    console.log(zaehler);
+    zaehler++;
+}
